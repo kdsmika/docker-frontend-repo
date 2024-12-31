@@ -2,10 +2,7 @@ name: Build and Push Docker Image to Dockerhub
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:  # This allows manual triggering via the GitHub UI
-
+    workflow_dispatch:  # This allows manual triggering via the GitHub UI
   pull_request:
     branches:
       - main
