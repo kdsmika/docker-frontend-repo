@@ -17,13 +17,24 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+  # Ensure that the tag.txt file exists
+    - name: Check if tag.txt exists
+      run: |
+        if [ ! -f ./tag.txt ]; then
+          echo "Error: tag.txt not found!" && exit 1
+        fi
   # Read the tag from a file (e.g., 'tag.txt') inside the repository
     - name: Get tag from file
       id: get_tag
       run: |
         # Read the tag from the 'tag.txt' file (change file name if needed)
-        TAG=$(cat tag.txt)
+        TAG=$(cat ./tag.txt)
         echo "TAG=$TAG" >> $GITHUB_ENV  # Save the tag in the environment variable
+
+# Debug step to verify the tag was set correctly
+    - name: Verify tag
+      run: echo "The tag is $TAG"
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
