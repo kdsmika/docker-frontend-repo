@@ -21,7 +21,7 @@ jobs:
   # Ensure that the tag.txt file exists
     - name: Check if tag.txt exists
       run: |
-        if [ ! -f tag.txt ]; then
+        if [ ! -f ../tag.txt ]; then
           echo "Error: tag.txt not found!" && exit 1
         fi
   # Read the tag from a file (e.g., 'tag.txt') inside the repository
@@ -29,7 +29,7 @@ jobs:
       id: get_tag
       run: |
         # Read the tag from the 'tag.txt' file (change file name if needed)
-        TAG=$(cat tag.txt)
+        TAG=$(cat ../tag.txt)
         echo "TAG=$TAG" >> $GITHUB_ENV  # Save the tag in the environment variable
 
 # Debug step to verify the tag was set correctly
