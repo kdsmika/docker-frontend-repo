@@ -34,7 +34,7 @@ jobs:
 
 # Debug step to verify the tag was set correctly
     - name: Verify tag
-      run: echo "The tag is $TAG"
+      run: echo "The tag is $TAG-- ${{ env.TAG }}"
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
@@ -50,4 +50,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: kapilmika485/dockerassignment1:$TAG
+        tags: kapilmika485/dockerassignment1:${{ env.TAG }}
