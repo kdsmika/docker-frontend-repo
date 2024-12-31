@@ -50,4 +50,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: kapilmika485/dockerassignment1:${{ env.TAG }}
+        tags: kapilmika485/dockerassignment1:ui-github-${{ env.TAG }}
