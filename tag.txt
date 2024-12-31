@@ -1,1 +1,1 @@
-ui-github-v1
+ui.github.v.1.0.1
