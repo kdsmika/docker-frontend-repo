@@ -17,6 +17,8 @@ import com.nagarro.model.Author;
 import com.nagarro.model.Book;
 import com.nagarro.service.LoginService;
 
+
+// use https://refactorfirst.com/spring-boot-prometheus-grafana
 @Controller
 public class AdminController {
 
@@ -73,6 +75,7 @@ public class AdminController {
 
 	@GetMapping("/home")
 	public String goHome(Model model) {
+		logger.info("Home get books into database ");
 		List<Book> books = loginService.fetchAllBooks();
 		model.addAttribute("books", books);
 		return "home";
